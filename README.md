@@ -15,7 +15,6 @@ approach:
   outputs:  [tools, writeups]
 
 contact:
-  disclosure: open to coordinated reports
   linkedin:   https://www.linkedin.com/in/nikos-pitsilis/
   hackthebox: https://app.hackthebox.com/public/users/3376923
 
