@@ -24,15 +24,13 @@ in_scope:
     - id:      h1grep
       summary: grep for disclosed HackerOne reports from the terminal
       filters: [keyword, severity, cwe, program, votes, bounty]
-      edge: >
-        reverse-engineered GraphQL — encodes crash-avoidance rules
+      edge: reverse-engineered GraphQL — encodes crash-avoidance rules
         for query shapes H1's endpoint rejects
       install: pip install h1grep
       socket:  https://socket.dev/pypi/package/h1grep
 
     - id:      nuclei-index
-      summary: >
-        map a CVE id to local nuclei-templates, emit the exact
+      summary: map a CVE id to local nuclei-templates, emit the exact
         rate-limited nuclei command
       traits:  [indexes-once, cached, "--json", "stdlib-only", "py>=3.9"]
       install: pip install nuclei-index
