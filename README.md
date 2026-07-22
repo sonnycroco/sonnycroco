@@ -41,6 +41,8 @@ in_scope:
       chain: CVE-2025-55182 -> shell -> exposed Node.js debugger -> root
     - box:   HTB MonitorsFour
       chain: PHP type-juggling -> leaked hashes -> admin -> Cacti RCE in Docker -> exposed Docker API -> Windows host
+    - box:   HTB Pirate
+      chain: pre-Windows 2000 machine account -> gMSA read -> WinRM foothold -> ligolo pivot -> NTLM relay/RBCD -> WEB01 local admin -> ForceChangePassword -> constrained-delegation SPN injection -> Domain Admin
 
   adjacent:
     # cloud surface the tooling gets pointed at
