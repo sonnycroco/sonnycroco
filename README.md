@@ -11,7 +11,7 @@ target:
 
 approach:
   language: python
-  deps:     none
+  deps:     minimal
   outputs:  [tools, writeups]
 
 contact:
@@ -35,6 +35,17 @@ in_scope:
       traits:  [indexes-once, cached, "--json", "stdlib-only", "py>=3.9"]
       install: pip install nuclei-index
       socket:  https://socket.dev/pypi/package/nuclei-index
+
+    - id:      bbgate
+      summary: pre-submission gate for bug bounty findings drafted with an AI.
+               reads the writeup and the evidence files beside it, answers
+               READY / HOLD / DROP, refuses to package without proof
+      edge:    verdict is recomputed from disk on every call, so a model cannot
+               talk its way to READY. holds any writeup nobody re-ran by hand
+               since the last AI edit
+      traits:  [no-network, no-subprocess, "--json", exit-codes, "py>=3.9"]
+      install: git clone https://github.com/sonnycroco/bbgate && pip install ./bbgate
+      repo:    https://github.com/sonnycroco/bbgate
 
   writeups:
     - box:   HTB Reactor
